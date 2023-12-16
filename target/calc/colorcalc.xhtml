@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>JSF 2.0 Color Balance Calculator</title>
+</h:head>
+<h:body>
+	<h3>JSF 2.0 Color Balance Calculator</h3>
+	<!-- <h:form>
+		<h:inputText value="#{helloBean.name}"></h:inputText>
+		<h:commandButton value="Welcome Meae" action="welcomes"></h:commandButton>
+	</h:form> -->
+	<h:form enctype="multipart/form-data">
+		<div>
+			<h:inputFile id="uploader" value="#{uploadBean.file}" validator="#{uploadBean.validate}">
+				<f:ajax listener="#{uploadBean.upload}" render="@form"/>
+			</h:inputFile>
+			<h:message for="uploader"/>
+			<textarea id="uploadDataTextArea" value="" name="text" cols="40" rows="20">#{uploadBean.fileContent}</textarea> 
+			<textarea id="testtext" value="" name="text2" cols="40" rows="20">#{uploadBean.colorResultString}</textarea> 
+		</div>
+		<div>
+			<textarea id="testtext" value="" name="text2" cols="100" rows="20">#{uploadBean.errorString}</textarea> 
+		</div>
+	</h:form>
+</h:body>
+</html>
